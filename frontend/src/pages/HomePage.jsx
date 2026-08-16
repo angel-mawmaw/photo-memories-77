@@ -4,8 +4,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import { layoutConfig, renderComposition } from "../lib/photobooth";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API = "/api";
 
 const LAYOUTS = [
   { id: "strip4", name: "Four-photo strip", desc: "Classic vertical booth", thumb: "l1", cells: 4 },
