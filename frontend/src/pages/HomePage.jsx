@@ -52,18 +52,18 @@ export default function HomePage() {
   const slots = layoutConfig[layout].slots;
 
   // Start session on mount
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.post(`${API}/sessions`, { layout });
-        setSessionId(res.data.session_id);
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-    return () => stopCamera();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+useEffect(() => {
+  (async () => {
+    try {
+      const res = await axios.post(`${API}/sessions`, { layout });
+      setSessionId(res.data.session_id);
+    } catch (e) {
+      console.error(e);
+    }
+  })();
+
+  return () => stopCamera();
+}, []);
 
   const stopCamera = () => {
     if (streamRef.current) {
@@ -99,7 +99,9 @@ export default function HomePage() {
     setFacing((f) => (f === "user" ? "environment" : "user"));
     // startCamera called after facing state updates via effect
   };
-  useEffect(() => { if (cameraReady) startCamera(); /* eslint-disable-next-line */ }, [facing]);
+  useEffect(() => {
+  if (cameraReady) startCamera();
+}, [facing]);
 
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
