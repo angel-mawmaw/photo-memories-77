@@ -29,5 +29,6 @@
         "root" : "backend",
         "entrypoint":"backend/server.py"
         }
-    ]
+        
+        } 
 }
