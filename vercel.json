@@ -21,7 +21,13 @@
             "destination": {
                 "type": "service",
                 "service": "frontend"
+                
             }
+        },
+        "backend":{
+        "framework": "fastapi",
+        "root" : "backend",
+        "entrypoint":"backend/server.py"
         }
     ]
 }
